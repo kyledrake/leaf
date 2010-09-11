@@ -8,12 +8,12 @@ Leaf::ViewHelpers::LinkRenderer.class_eval do
     url = @template.request.url
     if page == 1
       # strip out page param and trailing ? and & if they exists
-      url.gsub(/(\?|\&)page=[0-9]+/, '').gsub(/\?$/, '').gsub(/\&$/, '')
+      url.gsub(/(\?|\&)#{@options[:param_name]}=[0-9]+/, '').gsub(/\?$/, '').gsub(/\&$/, '')
     else
-      if url =~ /(\?|\&)page=[0-9]+/
-        url.gsub(/page=[0-9]+/, "page=#{page}").gsub(/\&+/, '&')
+      if url =~ /(\?|\&)#{@options[:param_name]}=[0-9]+/
+        url.gsub(/#{@options[:param_name]}=[0-9]+/, "#{@options[:param_name]}=#{page}").gsub(/\&+/, '&')
       else
-        (url =~ /\?/) ? url + "&page=#{page}" : url + "?page=#{page}"
+        (url =~ /\?/) ? url + "&#{@options[:param_name]}=#{page}" : url + "?#{@options[:param_name]}=#{page}"
       end
     end
   end
