@@ -7,6 +7,7 @@ Leaf::ViewHelpers::LinkRenderer.class_eval do
   def url(page)
     url = @template.request.url
     url = @template.request.url.sub(/:\d+/, '') unless ENV['RACK_ENV'] =~ /dev$/
+    url = url.gsub 'mount-gay-ssh.stepchangecloud.com', 'www.sailingspokenhere.com'
     
     if page == 1
       # strip out page param and trailing ? and & if they exists

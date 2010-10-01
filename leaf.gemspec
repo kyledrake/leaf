@@ -4,7 +4,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'leaf/version'
 
 Gem::Specification.new do |s|
-  s.name        = "mjfreshyfresh-leaf"
+  s.name        = "mjfreshyfresh-mtgay-leaf"
   s.version     = Leaf::VERSION::STRING
   s.date        = Time.now.strftime('%Y-%m-%d')
   s.summary     = "Simple pagination library"
